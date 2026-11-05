@@ -219,6 +219,20 @@ k_input = st.sidebar.slider(
 )
 
 st.sidebar.markdown("---")
+st.sidebar.subheader("📄 System Documentation")
+doc_pdf_path = BASE_DIR / "IoTGuard_Architecture_and_Engineering_Documentation.pdf"
+if doc_pdf_path.exists():
+    with open(doc_pdf_path, "rb") as f:
+        pdf_bytes = f.read()
+    st.sidebar.download_button(
+        label="📥 Download Architecture PDF",
+        data=pdf_bytes,
+        file_name="IoTGuard_Architecture_and_Engineering_Documentation.pdf",
+        mime="application/pdf",
+        help="Complete technical specification, architecture diagrams, decision log, and roadmap."
+    )
+
+st.sidebar.markdown("---")
 st.sidebar.subheader("Stage Architecture")
 for stage, desc in STAGE_DESCRIPTIONS.items():
     st.sidebar.caption(f"**{stage.upper()}**: {desc}")
