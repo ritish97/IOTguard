@@ -15,8 +15,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-# Setup path
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Setup path (works from repository root or dashboard/ subfolder)
+BASE_DIR = Path(__file__).resolve().parent
+if BASE_DIR.name == "dashboard":
+    BASE_DIR = BASE_DIR.parent
 sys.path.insert(0, str(BASE_DIR))
 
 from config.settings import (
