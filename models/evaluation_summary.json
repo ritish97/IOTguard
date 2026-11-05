@@ -1,0 +1,310 @@
+{
+  "IoTGuard (XGBoost)": {
+    "macro_f1": 1.0,
+    "binary_f1": 1.0,
+    "benign_fpr": 0.0,
+    "benign_fp_count": 0,
+    "total_benign": 3365,
+    "c2_f1": 1.0,
+    "per_class": {
+      "benign": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3365
+      },
+      "download": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "cnc": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 120
+      },
+      "scan": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 2700
+      },
+      "attack": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 800
+      }
+    },
+    "confusion_matrix": [
+      [
+        3365,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        120,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2700,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        800
+      ]
+    ]
+  },
+  "Random Forest": {
+    "macro_f1": 1.0,
+    "binary_f1": 1.0,
+    "benign_fpr": 0.0,
+    "benign_fp_count": 0,
+    "total_benign": 3365,
+    "c2_f1": 1.0,
+    "per_class": {
+      "benign": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3365
+      },
+      "download": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "cnc": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 120
+      },
+      "scan": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 2700
+      },
+      "attack": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 800
+      }
+    },
+    "confusion_matrix": [
+      [
+        3365,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        120,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2700,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        800
+      ]
+    ]
+  },
+  "Decision Tree (d=8)": {
+    "macro_f1": 1.0,
+    "binary_f1": 1.0,
+    "benign_fpr": 0.0,
+    "benign_fp_count": 0,
+    "total_benign": 3365,
+    "c2_f1": 1.0,
+    "per_class": {
+      "benign": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3365
+      },
+      "download": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "cnc": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 120
+      },
+      "scan": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 2700
+      },
+      "attack": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 800
+      }
+    },
+    "confusion_matrix": [
+      [
+        3365,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        120,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2700,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        800
+      ]
+    ]
+  },
+  "XGBoost, no window feat.": {
+    "macro_f1": 1.0,
+    "binary_f1": 1.0,
+    "benign_fpr": 0.0,
+    "benign_fp_count": 0,
+    "total_benign": 3365,
+    "c2_f1": 1.0,
+    "per_class": {
+      "benign": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3365
+      },
+      "download": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "cnc": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 120
+      },
+      "scan": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 2700
+      },
+      "attack": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 800
+      }
+    },
+    "confusion_matrix": [
+      [
+        3365,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        120,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2700,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        800
+      ]
+    ]
+  }
+}

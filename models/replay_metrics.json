@@ -1,0 +1,36 @@
+{
+  "Capture 39-1 (IRCBot - Fig. 6)": {
+    "total_connections": 1620,
+    "device_contained": true,
+    "first_action_type": "L2_BLOCK_DESTINATION",
+    "lead_time_seconds": 528.08,
+    "harmful_dropped_pct": 99.67,
+    "false_actions_count": 0,
+    "quarantined_devices": [
+      "192.168.1.195"
+    ],
+    "blocked_destinations_count": 4
+  },
+  "Capture 34-1 (Mirai Botnet)": {
+    "total_connections": 2003,
+    "device_contained": true,
+    "first_action_type": "L2_BLOCK_DESTINATION",
+    "lead_time_seconds": 15.64,
+    "harmful_dropped_pct": 99.75,
+    "false_actions_count": 0,
+    "quarantined_devices": [
+      "192.168.1.196"
+    ],
+    "blocked_destinations_count": 1
+  },
+  "Benign Device (Philips Hue)": {
+    "total_connections": 2000,
+    "device_contained": false,
+    "first_action_type": null,
+    "lead_time_seconds": 0.0,
+    "harmful_dropped_pct": 100.0,
+    "false_actions_count": 0,
+    "quarantined_devices": [],
+    "blocked_destinations_count": 0
+  }
+}

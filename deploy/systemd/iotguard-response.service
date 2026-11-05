@@ -1,0 +1,28 @@
+[Unit]
+Description=IoTGuard Privileged Response Daemon (nftables Gateway Controller)
+After=network.target
+
+[Service]
+Type=simple
+# Privileged service restricted specifically to Network Administration capabilities
+User=root
+WorkingDirectory=/opt/iotguard
+
+ExecStart=/opt/iotguard/venv/bin/python -m iotguard.response_daemon --socket /run/iotguard/response.sock
+
+Restart=always
+RestartSec=3
+
+# Capability Sandboxing: Limit capabilities strictly to CAP_NET_ADMIN
+AmbientCapabilities=CAP_NET_ADMIN
+CapabilityBoundingSet=CAP_NET_ADMIN
+
+RuntimeDirectory=iotguard
+RuntimeDirectoryMode=0755
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=iotguard-response
+
+[Install]
+WantedBy=multi-user.target

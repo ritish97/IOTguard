@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#4F46E5" # Modern tactile indigo for primary buttons and accents
+backgroundColor = "#F9FBFC" # Soft, humanised light gradient background
+secondaryBackgroundColor = "#FFFFFF" # Crisp white for sidebars, cards, and containers
+textColor = "#1E293B" # Deep slate for high-contrast readability
+font = "sans serif" # Modern human-centric typography (Plus Jakarta Sans)

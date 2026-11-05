@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # 1. Out-of-band / Mirrored Traffic Sensor (Zeek)
+  # Analyzes connection metadata and immediately drops packet payloads (Metadata Isolation)
+  zeek-sensor:
+    image: zeek/zeek:latest
+    container_name: iotguard-zeek-sensor
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    volumes:
+      - zeek-logs:/var/log/zeek
+      - ./deploy/zeek/local.zeek:/usr/local/zeek/share/zeek/site/local.zeek:ro
+    command: ["zeek", "-i", "eth0", "local.zeek"]
+
+  # 2. IoTGuard Edge IDS Engine (Feature Extractor + XGBoost + Graded Containment)
+  # Runs with CAP_NET_ADMIN to write to nftables table `inet iotguard`
+  iotguard-ids:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iotguard-edge-ids
+    restart: always
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - zeek-logs:/var/log/zeek:ro
+      - ./logs:/app/logs
+      - ./models:/app/models:ro
+    command: ["detect", "--log", "/var/log/zeek/conn.log", "--batch", "--nft", "--follow", "--verify-model"]
+    depends_on:
+      - zeek-sensor
+
+  # 3. IoTGuard Operator Web Dashboard (Interactive Visualization)
+  iotguard-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iotguard-web-dashboard
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./models:/app/models:ro
+      - ./logs:/app/logs:ro
+      - ./data/samples:/app/data/samples:ro
+    command: ["dashboard"]
+    depends_on:
+      - iotguard-ids
+
+volumes:
+  zeek-logs:

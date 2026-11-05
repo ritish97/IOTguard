@@ -1,0 +1,33 @@
+[Unit]
+Description=IoTGuard Edge Intrusion Detection & Classification Engine
+After=network.target zeek.service
+Wants=zeek.service
+
+[Service]
+Type=simple
+# Unprivileged user execution (Least Privilege Execution)
+User=iotguard
+Group=iotguard
+WorkingDirectory=/opt/iotguard
+
+ExecStart=/opt/iotguard/venv/bin/python cli.py detect --log /var/log/zeek/conn.log --batch --follow --verify-model
+
+# Automatic Restart on Crash or Out-Of-Memory (Process Management)
+Restart=always
+RestartSec=3
+OOMScoreAdjust=-500
+
+# Resource Governance & Sandboxing
+MemoryMax=512M
+CPUQuota=80%
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/iotguard/logs /var/log/zeek
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=iotguard-ids
+
+[Install]
+WantedBy=multi-user.target
